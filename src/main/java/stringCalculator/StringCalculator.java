@@ -13,13 +13,19 @@ public class StringCalculator {
         this.inputString = inputString;
     }
 
-    public List<String> split(){
+    public List<Integer> split(){
         String[] splitArray = inputString.split("");
         List<String> splitList = Arrays.asList(splitArray);
         return splitList.stream()
                 .filter(s -> !s.equals(","))
                 .filter(s -> !s.equals(";"))
+                .map(Integer::parseInt)
                 .collect(Collectors.toList());
+    }
+
+    public Integer sum() {
+        List<Integer> split = split();
+        return split.stream().reduce(0, Integer::sum);
     }
 
 }
