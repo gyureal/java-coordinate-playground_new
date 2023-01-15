@@ -3,11 +3,12 @@ package stringCalculator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class StringCalculator {
     private String inputString;
-    private String customSeparator;
 
     public StringCalculator(String inputString) {
         this.inputString = inputString;
@@ -20,7 +21,15 @@ public class StringCalculator {
         return false;
     }
 
+    // //;\n1;2;3
     public String[] split(){
+        // custom
+        Pattern pattern = Pattern.compile("//(.)\n(.*)");
+        Matcher matcher = pattern.matcher(inputString);
+        if (matcher.find()) {
+            String customSpliter = matcher.group(1);
+            return matcher.group(2).split(customSpliter);
+        }
         return inputString.split(",|:");
     }
 

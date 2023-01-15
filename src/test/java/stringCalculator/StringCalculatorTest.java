@@ -39,8 +39,24 @@ class StringCalculatorTest {
     }
 
     @Test
+    void splitTest_custom_spliter_semicollon() {
+        StringCalculator sc = new StringCalculator("//;\n1;2;3;4");
+        String[] result = sc.split();
+
+        String[] answer = {"1","2","3","4"};
+        assertThat(result).isEqualTo(answer);
+    }
+
+    @Test
     void sumTest_10() {
         StringCalculator sc = new StringCalculator("1:2,3:4");
+        Integer sum = sc.sum();
+        assertThat(sum).isEqualTo(10);
+    }
+
+    @Test
+    void sumTest_custom_10() {
+        StringCalculator sc = new StringCalculator("//;\n1;2;3;4");
         Integer sum = sc.sum();
         assertThat(sum).isEqualTo(10);
     }
