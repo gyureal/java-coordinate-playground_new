@@ -29,9 +29,5 @@ class CarTest {
         assertThat(distance).isEqualTo(1);
     }
 
-    @Test
-    void 자동차_이름은_쉼표를_기준으로_구분_Test() {
-
-    }
 
 }
