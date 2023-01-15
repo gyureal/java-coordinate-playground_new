@@ -8,8 +8,9 @@ public class Car {
     private final Integer MAX_LENGTH = 5;
     public Integer distance = 0;
 
-    public Car (String carName) throws Exception{
+    public Car (String carName, Integer distance) throws Exception{
         this.name = carName;
+        this.distance = distance;
         validateName();
     }
 
