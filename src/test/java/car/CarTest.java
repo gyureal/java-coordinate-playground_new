@@ -28,4 +28,16 @@ class CarTest {
 
         assertThat(distance).isEqualTo(1);
     }
+
+    @Test
+    void 랜덤로직분리_Car() throws Exception{
+        Car car = new Car("pori", 0) {
+            @Override
+            protected Integer makeRandomNumber() {
+                return 5;
+            }
+        };
+        car.drive();
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
 }
