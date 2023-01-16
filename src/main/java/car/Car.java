@@ -42,4 +42,10 @@ public class Car {
         }
     }
 
+    public void drive(DriveStrategy driveStrategy) {
+        if (driveStrategy.movable()) {
+            distance += 1;
+        }
+    }
+
 }

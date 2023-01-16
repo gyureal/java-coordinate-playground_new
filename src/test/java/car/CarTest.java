@@ -40,4 +40,25 @@ class CarTest {
         car.drive();
         assertThat(car.getDistance()).isEqualTo(1);
     }
+
+    @Test
+    void 랜덤로직_인터페이스_분리_Strategy패턴_익명메서드() throws Exception {
+        Car car = new Car("pori", 0);
+        car.drive(new DriveStrategy() {
+            @Override
+            public Boolean movable() {
+                return true;
+            }
+        });
+
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void 랜덤로직_인터페이스_분리_Strategy패턴_람다() throws Exception {
+        Car car = new Car("pori", 0);
+        car.drive(() -> true);
+
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
 }
