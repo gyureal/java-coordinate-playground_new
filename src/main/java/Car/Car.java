@@ -25,15 +25,22 @@ public class Car {
         }
     }
 
-    public static Boolean movable(int randomNumber) {
-        if (randomNumber >= MIN_MOVABLE_NUM){
+    protected Boolean movable() {
+        if (generateRandomNumber() >= MIN_MOVABLE_NUM){
             return true;
         }
         return false;
     }
 
     public void move() {
-        this.distance += 1;
+        if (movable()) {
+            this.distance += 1;
+        }
+    }
+
+    private Integer generateRandomNumber() {
+        double num = Math.random();
+        return (int)(num * 10);
     }
 
     public String name() {

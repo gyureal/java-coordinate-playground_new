@@ -35,27 +35,18 @@ class CarTest {
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름의 길이는 1이상 5이하여야합니다.");
     }
-
-    @Test
-    public void 이동가능체크 () throws Exception {
-        Integer movableInput = 5;
-        Integer unMovableInput = 3;
-
-        // when
-        Boolean movableTrue = Car.movable(movableInput);
-        Boolean movableFalse = Car.movable(unMovableInput);
-
-        // then
-        assertThat(movableTrue).isEqualTo(true);
-        assertThat(movableFalse).isEqualTo(false);
-    }
     
     @Test
     public void 이동_메서드_테스트 () throws Exception {
         // given
         String name = "김무무";
         Integer distance = 2;
-        Car car = new Car(name, distance);
+        Car car = new Car(name, distance) {
+            @Override
+            protected Boolean movable() {
+                return true;
+            }
+        };
 
         // when
         car.move();
