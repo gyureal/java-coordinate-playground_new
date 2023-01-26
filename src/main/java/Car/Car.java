@@ -32,7 +32,20 @@ public class Car {
         return false;
     }
 
+    private Boolean movable(int number) {
+        if (number >= MIN_MOVABLE_NUM){
+            return true;
+        }
+        return false;
+    }
+
     public void move() {
+        if (movable()) {
+            this.distance += 1;
+        }
+    }
+
+    public void move(int number) {
         if (movable()) {
             this.distance += 1;
         }
