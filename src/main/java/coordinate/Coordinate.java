@@ -14,7 +14,7 @@ public class Coordinate {
         this.y = y;
     }
 
-    public static Coordinate from(String x, String y) { // 정적 팩토리 메서드
+    public static Coordinate of(String x, String y) { // 정적 팩토리 메서드
         int parsedX = Integer.parseInt(x);
         int parsedY = Integer.parseInt(y);
 
@@ -22,7 +22,7 @@ public class Coordinate {
         return new Coordinate(parsedX, parsedY);
     }
 
-    public static Coordinate from(int x, int y) { // 정적 팩토리 메서드
+    public static Coordinate of(int x, int y) { // 정적 팩토리 메서드
 
         validateInputRange(x, y);
         return new Coordinate(x, y);

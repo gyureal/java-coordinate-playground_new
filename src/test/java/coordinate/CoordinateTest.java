@@ -12,7 +12,7 @@ class CoordinateTest {
         int x = 3;
         int y = 1;
 
-        Coordinate coordinate = Coordinate.from(x, y);
+        Coordinate coordinate = Coordinate.of(x, y);
         assertThat(coordinate.getX()).isEqualTo(x);
         assertThat(coordinate.getY()).isEqualTo(y);
     }
@@ -23,7 +23,7 @@ class CoordinateTest {
         int y = 1;
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Coordinate.from(x, y);
+            Coordinate.of(x, y);
         });
     }
 }
