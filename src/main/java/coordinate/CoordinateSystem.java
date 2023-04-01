@@ -14,17 +14,20 @@ public class CoordinateSystem {
         coordinates.addCoordinate(coordinate);
     }
 
-    public void rendering() {
-        String result = "";
-        result += makeGrid();
-        result += "\n";
-        result += printDistance();
-        System.out.println(result);
+    public String printCoordinates() {
+        return coordinates.toString();
     }
 
-    private String printDistance() {
-        double distance = 3d;
-        return String.format("두 점 사이의 거리는 %f", distance);
+    public String rendering() {return "";}
+
+    public String renderDistance() throws IllegalStateException{
+
+        try {
+            double distance = coordinates.calculateDistance();
+            return String.format("두 점 사이의 거리는 %.3f입니다.", distance);
+        } catch (IllegalStateException exception) { // 거리 측정 에러시, 거리 표시를 하지 않는다.
+            return "";
+        }
     }
 
     public String makeGrid() {
