@@ -13,14 +13,8 @@ class CoordinatesTest {
 
     @Test
     void 좌표_거리_계산() {
-        Coordinate one = Coordinate.of(1, 1);
-        Coordinate theOther = Coordinate.of(2, 2);
 
-        List<Coordinate> coordinateList = new ArrayList<>();
-        coordinateList.add(one);
-        coordinateList.add(theOther);
-
-        Coordinates coordinates = new Coordinates(coordinateList);
+        Coordinates coordinates = new Coordinates(1, 1, 2, 2);
         double distance = coordinates.calculateDistance();
 
         assertThat(distance).isEqualTo(1.414, offset(0.00099));
@@ -29,14 +23,8 @@ class CoordinatesTest {
 
     @Test
     void 좌표_거리_계산_2() {
-        Coordinate one = Coordinate.of(1, 5);
-        Coordinate theOther = Coordinate.of(3, 1);
 
-        List<Coordinate> coordinateList = new ArrayList<>();
-        coordinateList.add(one);
-        coordinateList.add(theOther);
-
-        Coordinates coordinates = new Coordinates(coordinateList);
+        Coordinates coordinates = new Coordinates(1, 5, 3, 1);
         double distance = coordinates.calculateDistance();
 
         assertThat(distance).isEqualTo(4.472, offset(0.00099));
@@ -53,6 +41,14 @@ class CoordinatesTest {
         assertThrows(IllegalStateException.class, () -> {
             coordinates.calculateDistance();
         });
+    }
+
+    @Test
+    void toString_Test() {
+        Coordinates coordinates = new Coordinates(1, 5, 3, 1);
+        String result = coordinates.toString();
+
+        assertThat(result).isEqualTo("(1, 5) (3, 1)");
     }
 
 }
