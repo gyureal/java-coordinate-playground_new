@@ -26,4 +26,15 @@ class CoordinateTest {
             Coordinate.of(x, y);
         });
     }
+
+    @Test
+    void toString_Test() {
+        int x = 3;
+        int y = 1;
+
+        Coordinate coordinate = Coordinate.of(x, y);
+        String result = coordinate.toString();
+
+        assertThat(result).isEqualTo("(3, 1)");
+    }
 }
