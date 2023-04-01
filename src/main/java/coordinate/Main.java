@@ -16,7 +16,7 @@ public class Main {
         try {
             String content = input.substring(1, input.length() - 1);
             String[] cord = content.split(", ");
-            return Coordinate.from(cord[0], cord[1]);
+            return Coordinate.of(cord[0], cord[1]);
 
         } catch (Exception e) {
             throw new IllegalArgumentException("올바른 값을 입력해 주세요 : ex) (1, 2)");
